@@ -1,5 +1,19 @@
 import pandas as pd
 
+# # 检查权限
+# import ctypes, sys
+
+# def is_admin():
+#     try:
+#         return ctypes.windll.shell32.IsUserAnAdmin()
+#     except:
+#         return False
+
+# if not is_admin():
+#     ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+
+
+
 # 读取Excel文件
 df = pd.read_excel("名单.xlsx")
 

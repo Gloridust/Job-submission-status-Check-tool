@@ -65,3 +65,4 @@ df[status_column] = df[name_column].map(lambda name: 'Submitted' if name_dic[nam
 # Write the updated DataFrame back to the Excel file, assuming you want to overwrite the original file
 df.to_excel(excel_name, index=False)
 print("Submission statuses have been saved to the spreadsheet")
+input("Press Enter to close...")

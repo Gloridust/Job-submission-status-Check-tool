@@ -68,3 +68,4 @@ df[status_column] = df[name_column].map(lambda name: '已交' if name_dic[name] 
 # 将更新后的DataFrame写回Excel文件，这里假设您想保留原文件名，进行覆盖保存
 df.to_excel(excel_name, index=False)
 print("已将提交情况保存至表格")
+input("按下Enter键结束...")

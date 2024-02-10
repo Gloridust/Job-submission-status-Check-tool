@@ -45,21 +45,21 @@ for name in name_dic.keys():
 
 # print(name_dic)
 have_sub_num = 0
-have_sub = "已提交的有："
+have_sub = ">>>已提交的有："
 for name, status in name_dic.items():
     if status == 1:  # 检查值是否为1
         have_sub_num += 1
         have_sub += (name + ",")  # 记录
-print("已提交人数：",have_sub_num)
+print(">>>已提交人数：",have_sub_num)
 print(have_sub)
 
 not_sub_num = 0
-not_sub = "还未提交的有："
+not_sub = ">>>还未提交的有："
 for name, status in name_dic.items():
     if status == 0:  # 检查值是否为0
         not_sub_num += 1
         not_sub += (name + ",")  # 记录
-print("未提交人数：",not_sub_num)
+print(">>>未提交人数：",not_sub_num)
 print(not_sub)
 
 # 将提交情况转换为“已交”或“未交”
@@ -67,5 +67,5 @@ df[status_column] = df[name_column].map(lambda name: '已交' if name_dic[name] 
 
 # 将更新后的DataFrame写回Excel文件，这里假设您想保留原文件名，进行覆盖保存
 df.to_excel(excel_name, index=False)
-print("已将提交情况保存至表格")
+print(">>>已将提交情况保存至表格")
 input("按下Enter键结束...")

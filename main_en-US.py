@@ -41,22 +41,22 @@ for name in name_dic.keys():
 
 # Tracking submitted
 submitted_count = 0
-submitted_names = "Submitted by: "
+submitted_names = ">>>Submitted by: "
 for name, status in name_dic.items():
     if status == 1:  # Check if the status is 1
         submitted_count += 1
         submitted_names += (name + ",")  # Record
-print("Number of submissions:", submitted_count)
+print(">>>Number of submissions:", submitted_count)
 print(submitted_names)
 
 # Tracking not submitted
 not_submitted_count = 0
-not_submitted_names = "Not yet submitted by: "
+not_submitted_names = ">>>Not yet submitted by: "
 for name, status in name_dic.items():
     if status == 0:  # Check if the status is 0
         not_submitted_count += 1
         not_submitted_names += (name + ",")  # Record
-print("Number of missing submissions:", not_submitted_count)
+print(">>>Number of missing submissions:", not_submitted_count)
 print(not_submitted_names)
 
 # Convert the submission status into "Submitted" or "Not Submitted"
@@ -64,5 +64,5 @@ df[status_column] = df[name_column].map(lambda name: 'Submitted' if name_dic[nam
 
 # Write the updated DataFrame back to the Excel file, assuming you want to overwrite the original file
 df.to_excel(excel_name, index=False)
-print("Submission statuses have been saved to the spreadsheet")
+print(">>>Submission statuses have been saved to the spreadsheet")
 input("Press Enter to close...")

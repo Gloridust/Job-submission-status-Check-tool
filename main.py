@@ -25,13 +25,18 @@ import os
 # 初始化一个空的tuple用于存放作业文件中提取的姓名
 work_list = tuple()
 
+import spacy
+nlp = spacy.load("zh_core_web_sm")
 # 遍历当前目录下的所有文件
 for filename in os.listdir('.'):
-    # 假设文件名格式为“姓名其他信息.docx”，我们通过提取文件名来获取姓名
-    # 这里使用的是简单的字符串分割方法，可能需要根据实际情况调整
     if any(filename.endswith(ext) for ext in file_extensions):  # 确保处理的是文档文件
-        name_part = filename.split(name_is_before)[0]  # 使用姓名和学号之间的分隔符进行分割
-        work_list += (name_part,)  # 将姓名加入到work_list中
+        # 使用spaCy处理文件名
+        doc = nlp(filename)
+        # 提取人名
+        for ent in doc.ents:
+            if ent.label_ == "PERSON":
+                work_list += (ent.text,)  # 将提取的姓名添加到work_list中
+
 
 # print(work_list)
 

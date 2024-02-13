@@ -5,12 +5,13 @@ status_column="提交情况"
 file_extensions = ['.doc', '.docx']
 name_is_before="230"
 
+import pandas as pd
+import os
+
 # 声明
 print("你正在使用由 Gloridust 制作的 Job-submission-status-Check-tool \n如果你喜欢这个程序，不妨在Github上面start该项目：https://github.com/Gloridust/Job-submission-status-Check-tool \n在使用软件之前，请确保您正确放置了所有文件并正确配置了文件 \n如果有任何问题，你可以在该项目的readme文件或issue中寻求帮助\n")
 print(f"当前的配置信息如下：\n名单表格：{excel_name}\n姓名所在列：{name_column}\n提交情况列：{status_column}\n提交的文件类型：{file_extensions}\n名字部分前置于：{name_is_before}")
 input("确认无误后，按下Enter键开始")
-
-import pandas as pd
 
 # 读取Excel文件
 df = pd.read_excel(excel_name)
@@ -19,8 +20,6 @@ df = pd.read_excel(excel_name)
 name_dic = {name: 0 for name in df[name_column]}
 
 # print(name_dic)
-
-import os
 
 # 初始化一个空的tuple用于存放作业文件中提取的姓名
 work_list = tuple()

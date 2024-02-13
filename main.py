@@ -66,6 +66,11 @@ for name, status in name_dic.items():
 print(">>>未提交人数：",not_sub_num)
 print(not_sub)
 
+if work_num == have_sub_num:
+    pass
+else:
+    print(">>>注意：检测到的文件数量与识别到的已提交人数不符<<<\n>>>请检查文件命名是否规范<<<")
+
 # 将提交情况转换为“已交”或“未交”
 df[status_column] = df[name_column].map(lambda name: '已交' if name_dic[name] == 1 else '未交')
 

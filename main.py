@@ -24,6 +24,8 @@ import os
 
 # 初始化一个空的tuple用于存放作业文件中提取的姓名
 work_list = tuple()
+# 记录文件数量
+work_num = 0
 
 # 遍历当前目录下的所有文件
 for filename in os.listdir('.'):
@@ -32,8 +34,10 @@ for filename in os.listdir('.'):
     if any(filename.endswith(ext) for ext in file_extensions):  # 确保处理的是文档文件
         name_part = filename.split(name_is_before)[0]  # 使用姓名和学号之间的分隔符进行分割
         work_list += (name_part,)  # 将姓名加入到work_list中
+        work_num += 1   # 记录文件数量
 
 # print(work_list)
+print(">>>检测到文件数量：",work_num)
 
 # 遍历name_dic中的每个姓名
 for name in name_dic.keys():

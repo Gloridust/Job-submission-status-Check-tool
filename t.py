@@ -1,4 +1,5 @@
 from ltp import LTP
 ltp = LTP()
-word = ltp.pipeline("他叫汤姆去拿外衣。阙棵2301101024？", tasks=["cws"], return_dict = False)
-print(word)
+word = ltp.pipeline(['秦卓230110105.doc', '秦悦230110130.docx'], tasks=["cws"], return_dict=False)
+word_flat = [item for sublist in word[0] for item in sublist]
+print(word_flat)

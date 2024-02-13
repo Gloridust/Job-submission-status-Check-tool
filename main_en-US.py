@@ -20,8 +20,8 @@ df = pd.read_excel(excel_name)
 # Initialize name dictionary
 name_dic = {name: 0 for name in df[name_column]}
 
-# Initialize an empty tuple to store extracted names from homework files
-work_list = tuple()
+# Initialize an empty list to store extracted names from homework files
+work_list = []
 # Record the number of files
 work_num = 0
 
@@ -31,7 +31,7 @@ for filename in os.listdir('.'):
     # Here, a simple string splitting method is used, which may need adjustments based on the actual situation
     if any(filename.endswith(ext) for ext in file_extensions):  # Ensure processing document files
         name_part = filename.split(name_is_before)[0]  # Split using the separator between name and ID
-        work_list += (name_part,)  # Add the name to work_list
+        work_list.append(name_part,)  # Add the name to work_list
         work_num += 1   # Record file count
 
 print(">>> Detected files count:", work_num)

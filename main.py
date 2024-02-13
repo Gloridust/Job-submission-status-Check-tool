@@ -21,8 +21,8 @@ name_dic = {name: 0 for name in df[name_column]}
 
 # print(name_dic)
 
-# 初始化一个空的tuple用于存放作业文件中提取的姓名
-work_list = tuple()
+# 初始化一个空的列表用于存放作业文件中提取的姓名
+work_list = []
 # 记录文件数量
 work_num = 0
 
@@ -32,7 +32,7 @@ for filename in os.listdir('.'):
     # 这里使用的是简单的字符串分割方法，可能需要根据实际情况调整
     if any(filename.endswith(ext) for ext in file_extensions):  # 确保处理的是文档文件
         name_part = filename.split(name_is_before)[0]  # 使用姓名和学号之间的分隔符进行分割
-        work_list += (name_part,)  # 将姓名加入到work_list中
+        work_list.append(name_part)  # 将姓名加入到work_list中
         work_num += 1   # 记录文件数量
 
 # print(work_list)

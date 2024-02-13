@@ -9,7 +9,7 @@ import pandas as pd
 import os
 from ltp import LTP
 
-print("初始化LTP分句模型中...")
+print("初始化LTP分词模型中...")
 ltp = LTP()
 
 # 声明
@@ -27,6 +27,7 @@ name_dic = {name: 0 for name in df[name_column]}
 
 # 初始化一个空的列表用于存放文件名
 work_list = []
+works = []
 # 记录文件数量
 work_num = 0
 
@@ -34,21 +35,19 @@ work_num = 0
 for filename in os.listdir('.'):
     # 假设文件名格式为“姓名其他信息.docx”，我们通过提取文件名来获取姓名
     if any(filename.endswith(ext) for ext in file_extensions):  # 确保处理的是文档文件
-        work_list.append(filename)
+        works.append(filename)
+        work_listing = ltp.pipeline(works, tasks=["cws"], return_dict=False)
         work_num += 1
 
-# 使用LTP进行分句
-sentence_list = ltp.pipeline(work_list, tasks=["srl"], return_dict=False)
-# 将结果扁平化成一个列表
-sentence_list_flat = [item for sublist in sentence_list for item in sublist]
+work_list = [item for sublist in work_listing[0] for item in sublist]
 
-# print(sentence_list_flat)
-print(">>>检测到文件数量：", work_num)
+# print(work_list)
+print(">>>检测到文件数量：",work_num)
 
 # 遍历name_dic中的每个姓名
 for name in name_dic.keys():
     # 检查姓名是否在work_list中
-    if name in sentence_list_flat:
+    if name in work_list:
         name_dic[name] = 1  # 存在，更新为已提交
     else:
         name_dic[name] = 0  # 不存在，保持为未提交
@@ -60,7 +59,7 @@ for name, status in name_dic.items():
     if status == 1:  # 检查值是否为1
         have_sub_num += 1
         have_sub += (name + ",")  # 记录
-print(">>>已提交人数：", have_sub_num)
+print(">>>已提交人数：",have_sub_num)
 print(have_sub)
 
 not_sub_num = 0
@@ -69,7 +68,7 @@ for name, status in name_dic.items():
     if status == 0:  # 检查值是否为0
         not_sub_num += 1
         not_sub += (name + ",")  # 记录
-print(">>>未提交人数：", not_sub_num)
+print(">>>未提交人数：",not_sub_num)
 print(not_sub)
 
 if work_num == have_sub_num:

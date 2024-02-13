@@ -4,6 +4,7 @@ excel_name = "Namelist.xlsx"
 name_column = "Name"
 status_column = "Submission Status"
 file_extensions = ['.doc', '.docx']
+name_is_before="230"
 
 import pandas as pd
 import os

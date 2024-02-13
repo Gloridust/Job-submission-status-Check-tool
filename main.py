@@ -7,6 +7,10 @@ name_is_before="230"
 
 import pandas as pd
 import os
+from ltp import LTP
+
+print("初始化LTP分词模型中...")
+ltp = LTP()
 
 # 声明
 print("你正在使用由 Gloridust 制作的 Job-submission-status-Check-tool \n如果你喜欢这个程序，不妨在Github上面start该项目：https://github.com/Gloridust/Job-submission-status-Check-tool \n在使用软件之前，请确保您正确放置了所有文件并正确配置了文件 \n如果有任何问题，你可以在该项目的readme文件或issue中寻求帮助\n")
@@ -21,19 +25,21 @@ name_dic = {name: 0 for name in df[name_column]}
 
 # print(name_dic)
 
-# 初始化一个空的列表用于存放作业文件中提取的姓名
+# 初始化一个空的列表用于存放文件名
 work_list = []
+works = []
 # 记录文件数量
 work_num = 0
 
 # 遍历当前目录下的所有文件
 for filename in os.listdir('.'):
     # 假设文件名格式为“姓名其他信息.docx”，我们通过提取文件名来获取姓名
-    # 这里使用的是简单的字符串分割方法，可能需要根据实际情况调整
     if any(filename.endswith(ext) for ext in file_extensions):  # 确保处理的是文档文件
-        name_part = filename.split(name_is_before)[0]  # 使用姓名和学号之间的分隔符进行分割
-        work_list.append(name_part)  # 将姓名加入到work_list中
-        work_num += 1   # 记录文件数量
+        works.append(filename)
+        work_listing = ltp.pipeline(works, tasks=["cws"], return_dict=False)
+        work_num += 1
+
+work_list = [item for sublist in work_listing[0] for item in sublist]
 
 # print(work_list)
 print(">>>检测到文件数量：",work_num)

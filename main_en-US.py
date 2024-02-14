@@ -3,14 +3,19 @@ excel_name = "Namelist.xlsx"
 name_column = "Name"
 status_column = "Submission Status"
 file_extensions = ['.doc', '.docx']
-name_is_before = "230"
+
 
 # Declaration
 print("You are using the Job-submission-status-Check-tool made by Gloridust. \nIf you like this program, consider starring it on GitHub: https://github.com/Gloridust/Job-submission-status-Check-tool \nBefore using the software, please make sure all files are correctly placed and configured. \nIf you have any questions, you can seek help in the project's README file or issues.\n")
-print(f"Current configuration is as follows:\nList spreadsheet: {excel_name}\nColumn for names: {name_column}\nColumn for submission status: {status_column}\nFile types for submission: {file_extensions}\nName part precedes: {name_is_before}")
+print(f"Current configuration is as follows:\nList spreadsheet: {excel_name}\nColumn for names: {name_column}\nColumn for submission status: {status_column}\nFile types for submission: {file_extensions}\n")
 input("After confirming the information is correct, press Enter to start")
 
 import pandas as pd
+import os
+from ltp import LTP
+
+print("Loading LTP...")
+ltp = LTP()
 
 # Read Excel file
 df = pd.read_excel(excel_name)
@@ -18,18 +23,20 @@ df = pd.read_excel(excel_name)
 # Initialize name dictionary
 name_dic = {name: 0 for name in df[name_column]}
 
-import os
 
 # Initialize an empty tuple to store extracted names from the homework files
-work_list = tuple()
+work_list = []
+works = []
+work_num = 0
 
 # Iterate through all files in the current directory
 for filename in os.listdir('.'):
     # Assume the file format is "NameOtherInfo.docx", we extract the name from the filename
     # Simple string splitting method used here, might need adjustment according to actual situations
     if any(filename.endswith(ext) for ext in file_extensions):  # Ensure we're dealing with document files
-        name_part = filename.split(name_is_before)[0]  # Use the delimiter between name and student number for splitting
-        work_list += (name_part,)  # Add the name to work_list
+        works.append(filename)
+        work_listing = ltp.pipeline(works, tasks=["cws"], return_dict=False)
+        work_num += 1
 
 # Iterate through each name in name_dic
 for name in name_dic.keys():

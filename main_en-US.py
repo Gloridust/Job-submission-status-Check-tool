@@ -12,9 +12,9 @@ input("After confirming the information is correct, press Enter to start")
 
 import pandas as pd
 import os
-from ltp import LTP
 
 print("Loading LTP...")
+from ltp import LTP
 ltp = LTP()
 
 # Read Excel file

@@ -7,9 +7,9 @@ file_extensions = ['.doc', '.docx']
 
 import pandas as pd
 import os
-from ltp import LTP
 
 print("初始化LTP分词模型中...")
+from ltp import LTP
 ltp = LTP()
 
 # 声明

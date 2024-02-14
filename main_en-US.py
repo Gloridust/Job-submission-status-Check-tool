@@ -5,17 +5,17 @@ status_column = "Submission Status"
 file_extensions = ['.doc', '.docx']
 
 
-# Declaration
-print("You are using the Job-submission-status-Check-tool made by Gloridust. \nIf you like this program, consider starring it on GitHub: https://github.com/Gloridust/Job-submission-status-Check-tool \nBefore using the software, please make sure all files are correctly placed and configured. \nIf you have any questions, you can seek help in the project's README file or issues.\n")
-print(f"Current configuration is as follows:\nList spreadsheet: {excel_name}\nColumn for names: {name_column}\nColumn for submission status: {status_column}\nFile types for submission: {file_extensions}\n")
-input("After confirming the information is correct, press Enter to start")
-
 import pandas as pd
 import os
 
 print("Loading LTP...")
 from ltp import LTP
 ltp = LTP()
+
+# Declaration
+print("You are using the Job-submission-status-Check-tool made by Gloridust. \nIf you like this program, consider starring it on GitHub: https://github.com/Gloridust/Job-submission-status-Check-tool \nBefore using the software, please make sure all files are correctly placed and configured. \nIf you have any questions, you can seek help in the project's README file or issues.\n")
+print(f"Current configuration is as follows:\nList spreadsheet: {excel_name}\nColumn for names: {name_column}\nColumn for submission status: {status_column}\nFile types for submission: {file_extensions}\n")
+input("After confirming the information is correct, press Enter to start")
 
 # Read Excel file
 df = pd.read_excel(excel_name)

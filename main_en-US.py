@@ -13,7 +13,7 @@ import keyboard
 # Introduction
 print("You are using the Job Submission Status Check Tool developed by Gloridust. \nIf you find this tool helpful, consider starring the project on GitHub: https://github.com/Gloridust/Job-submission-status-Check-tool \nBefore using the software, ensure that you have correctly placed all files and configured the settings properly. \nIf you encounter any issues, feel free to seek help in the project's readme file or issues section.\n")
 print(f"Current configuration:\nExcel file: {excel_name}\nName column: {name_column}\nSubmission status column: {status_column}\nFile types for submission: {file_extensions}\n")
-print("Press Enter to begin after verifying the configuration.")
+print("Press Enter to begin after verifying the configuration.\n")
 keyboard.wait('Enter')
 
 # Check if Excel file exists

@@ -3,7 +3,6 @@
 ![GitHub release](https://img.shields.io/github/v/release/Gloridust/Job-submission-status-Check-tool?style=flat-square)
 ![GitHub release date](https://img.shields.io/github/release-date/Gloridust/Job-submission-status-Check-tool?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Gloridust/Job-submission-status-Check-tool?style=flat-square)
-![GitHub download latest](https://img.shields.io/github/downloads/Gloridust/Job-submission-status-Check-tool/latest/total?style=flat-square)
 ![GitHub download total](https://img.shields.io/github/downloads/Gloridust/Job-submission-status-Check-tool/total?style=flat-square)  
 ![GitHub stars](https://img.shields.io/github/stars/Gloridust/Job-submission-status-Check-tool?style=flat-square)
 ![GitHub forks](https://img.shields.io/github/forks/Gloridust/Job-submission-status-Check-tool?style=flat-square)

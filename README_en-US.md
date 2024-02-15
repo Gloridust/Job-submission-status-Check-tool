@@ -87,7 +87,8 @@ Be sure to replace the following variable contents with your actual information:
     'name_column' as the header of the column where all names are located in the list spreadsheet;
     'status_column' as the header of the output results column;
     'file_extensions' as all file name extensions to be tallied;
-    'name_is_before' as the string before which the name part is: for example, if your file name is 'Ethan2301101024', and the name is all strings before '230', then fill in '230';
+
+~~'name_is_before' as the string before which the name part is: for example, if your file name is 'Ethan2301101024', and the name is all strings before '230', then fill in '230';~~ No need this config after v1 version.
 
 ## Run
 

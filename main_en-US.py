@@ -18,7 +18,7 @@ keyboard.wait('Enter')
 
 # Check if Excel file exists
 if not os.path.isfile(excel_name):
-    print(f"Error: Excel file '{excel_name}' not found. Please check if the configuration information is correct.")
+    print(f">>>Error: Excel file '{excel_name}' not found. Please check if the configuration information is correct.")
     print("Press Enter to exit...")
     keyboard.wait('Enter')
     exit()
@@ -27,19 +27,19 @@ if not os.path.isfile(excel_name):
 try:
     df = pd.read_excel(excel_name)
 except Exception as e:
-    print(f"Error: There was an issue reading the Excel file '{excel_name}': {e}")
+    print(f">>>Error: There was an issue reading the Excel file '{excel_name}': {e}")
     print("Press Enter to exit...")
     keyboard.wait('Enter')
     exit()
 
 # Check if the name column exists
 if name_column not in df.columns:
-    print(f"Error: Name column '{name_column}' not found in the Excel file. Please check if the configuration information is correct.")
+    print(f">>>Error: Name column '{name_column}' not found in the Excel file. Please check if the configuration information is correct.")
     print("Press Enter to exit...")
     keyboard.wait('Enter')
     exit()
 
-print(">>>Configuration is valid.")
+print("Configuration is valid.")
 
 # Read Excel file
 df = pd.read_excel(excel_name)

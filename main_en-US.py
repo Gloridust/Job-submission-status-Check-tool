@@ -8,11 +8,13 @@ name_is_before="230"
 
 import pandas as pd
 import os
+import keyboard
 
 # Introduction
 print("You are using the Job Submission Status Check Tool developed by Gloridust. \nIf you find this tool helpful, consider starring the project on GitHub: https://github.com/Gloridust/Job-submission-status-Check-tool \nBefore using the software, ensure that you have correctly placed all files and configured the settings properly. \nIf you encounter any issues, feel free to seek help in the project's readme file or issues section.\n")
 print(f"Current configuration:\nExcel file: {excel_name}\nName column: {name_column}\nSubmission status column: {status_column}\nFile types for submission: {file_extensions}\n")
-input("Press Enter to begin after verifying the configuration.")
+print("Press Enter to begin after verifying the configuration.")
+keyboard.wait('Enter')
 
 # Read Excel file
 df = pd.read_excel(excel_name)
@@ -68,4 +70,5 @@ df[status_column] = df[name_column].map(lambda name: 'Submitted' if name_dic[nam
 # Write the updated DataFrame back to the Excel file
 df.to_excel(excel_name, index=False)
 print(">>>Submission status has been saved to the spreadsheet.")
-input("Press Enter to exit...")
+print("Press Enter to exit...")
+keyboard.wait('Enter')

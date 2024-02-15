@@ -6,11 +6,13 @@ file_extensions = ['.doc', '.docx']
 
 import pandas as pd
 import os
+import keyboard
 
 # 声明
 print("你正在使用由 Gloridust 制作的 Job-submission-status-Check-tool \n如果你喜欢这个程序，不妨在Github上面start该项目：https://github.com/Gloridust/Job-submission-status-Check-tool \n在使用软件之前，请确保您正确放置了所有文件并正确配置了文件 \n如果有任何问题，你可以在该项目的readme文件或issue中寻求帮助\n")
 print(f"当前的配置信息如下：\n名单表格：{excel_name}\n姓名所在列：{name_column}\n提交情况列：{status_column}\n提交的文件类型：{file_extensions}\n")
-input("确认无误后，按下Enter键开始")
+print("确认无误后，按下Enter键开始")
+keyboard.wait('Enter')
 
 # 读取Excel文件
 df = pd.read_excel(excel_name)
@@ -67,4 +69,5 @@ df[status_column] = df[name_column].map(lambda name: '已交' if name_dic[name] 
 # 将更新后的DataFrame写回Excel文件
 df.to_excel(excel_name, index=False)
 print(">>>已将提交情况保存至表格")
-input("按下Enter键结束...")
+print("按下Enter键结束...")
+keyboard.wait('Enter')

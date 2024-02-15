@@ -88,7 +88,8 @@ git clone https://github.com/Gloridust/Job-submission-status-Check-tool.git
     'name_column' 为名单表格中所有人名字所在列的表头；
     'status_column' 为输出结果列的表头；
     'file_extensions' 为所有需要被统计的文件名后缀；
-    'name_is_before' 为名字在哪个字符串前：例如果你的文件名为 '张三2301101024' ,姓名为 '230' 前面的所有字符串，则填 '230' ；
+
+    'name_is_before' ~~为名字在哪个字符串前：例如果你的文件名为 '张三2301101024' ,姓名为 '230' 前面的所有字符串，则填 '230' ；~~ v2版本开始不再需要该项配置
 
 ## 运行
 

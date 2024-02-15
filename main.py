@@ -16,7 +16,7 @@ keyboard.wait('Enter')
 
 # 检查Excel文件是否存在
 if not os.path.isfile(excel_name):
-    print(f"错误：找不到 Excel 文件 '{excel_name}'。请检查配置信息是否正确。")
+    print(f">>>错误：找不到 Excel 文件 '{excel_name}'。请检查配置信息是否正确。")
     print("按下Enter键结束...")
     keyboard.wait('Enter')
     exit()
@@ -25,19 +25,19 @@ if not os.path.isfile(excel_name):
 try:
     df = pd.read_excel(excel_name)
 except Exception as e:
-    print(f"错误：读取 Excel 文件 '{excel_name}' 时出现问题：{e}")
+    print(f">>>错误：读取 Excel 文件 '{excel_name}' 时出现问题：{e}")
     print("按下Enter键结束...")
     keyboard.wait('Enter')
     exit()
 
 # 检查姓名所在列是否存在
 if name_column not in df.columns:
-    print(f"错误：在 Excel 文件中找不到姓名所在列 '{name_column}'。请检查配置信息是否正确。")
+    print(f">>>错误：在 Excel 文件中找不到姓名所在列 '{name_column}'。请检查配置信息是否正确。")
     print("按下Enter键结束...")
     keyboard.wait('Enter')
     exit()
 
-print(">>>配置信息检查完毕")
+print("配置信息检查完毕")
 
 # 读取Excel文件
 df = pd.read_excel(excel_name)

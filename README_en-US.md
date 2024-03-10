@@ -11,7 +11,7 @@
 
 This document is in English. For Chinese? [Please click here](README.md).
 
-## 目录
+## catalogue
 
 - [Changelog](#changelog)
 - [Branches](#branches)
